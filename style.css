@@ -1,0 +1,16 @@
+body {
+  margin: 3em auto;
+  max-width: 720px;
+
+  background-color: #F5F5F5;
+  color: #333;
+  font-family: 'Helvetica Neue',
+               'Helvetica',
+               'Liberation Sans', 'Roboto', 'Droid Sans', 'Arial', sans-serif;
+}
+
+textarea {
+  margin: 0.5em 0em 1em 0em;
+  padding: 0.5em;
+  resize: none;
+}
