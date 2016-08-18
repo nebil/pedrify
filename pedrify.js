@@ -27,7 +27,9 @@
             'ú': 'u',
         };
 
-        var output = this.toLowerCase();
+        var BLACKLIST = /[.,:;?!]/g;   // a regular expression
+                                      // to remove punctuation.
+        var output = this.toLowerCase().replace(BLACKLIST, '');
         for (var index = 0; index < output.length; index++) {
             var character = output.slice(index, index + 1);
             output = output.replaceBy(REPLACE[character] || character, index);
