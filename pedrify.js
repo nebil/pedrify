@@ -11,6 +11,10 @@
         return this.slice(0, index) + character + this.slice(index + 1);
     };
 
+    String.prototype.capitalize = function() {
+        return this.slice(0, 1).toUpperCase() + this.slice(1);
+    };
+
     String.prototype.pedrify = function() {
         var REPLACE = {
             'b': 'v',
@@ -23,12 +27,12 @@
             'ú': 'u',
         };
 
-        var output = this;
+        var output = this.toLowerCase();
         for (var index = 0; index < output.length; index++) {
             var character = output.slice(index, index + 1);
             output = output.replaceBy(REPLACE[character] || character, index);
         }
 
-        return output;
+        return output.capitalize();
     };
 }());
