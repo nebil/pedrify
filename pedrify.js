@@ -7,8 +7,10 @@
         outputBox.innerHTML = inputBox.pedrify();
     });
 
-    String.prototype.replaceBy = function(character, index) {
-        return this.slice(0, index) + character + this.slice(index + 1);
+    String.prototype.replaceBy = function(string, index) {
+        return this.slice(0, index) +
+               string +
+               this.slice(index + string.length);
     };
 
     String.prototype.capitalize = function() {
@@ -17,6 +19,7 @@
 
     String.prototype.pedrify = function() {
         var REPLACE = {
+            // one-letter replacement.
             'b': 'v',
             'v': 'b',
             'z': 's',
@@ -25,14 +28,29 @@
             'í': 'i',
             'ó': 'o',
             'ú': 'u',
+            // two-letter replacement.
+            'ce': 'se',
+            'ci': 'si',
+            'xp': 'sp',
+            'xq': 'sq',
+            'xt': 'st',
+            // three-letter replacement.
+            'xca': 'sca',
+            'xcl': 'scl',
+            'xco': 'sco',
+            'xcr': 'scr',
+            'xcu': 'scu',
         };
 
         var BLACKLIST = /[.,:;?!]/g;   // a regular expression
                                       // to remove punctuation.
         var output = this.toLowerCase().replace(BLACKLIST, '');
         for (var index = 0; index < output.length; index++) {
-            var character = output.slice(index, index + 1);
-            output = output.replaceBy(REPLACE[character] || character, index);
+            for (var range = 1; range <= 3; range++) {
+                var substring = output.slice(index, index + range);
+                output = output.replaceBy(REPLACE[substring] || substring,
+                                          index);
+            }
         }
 
         return output.capitalize();
