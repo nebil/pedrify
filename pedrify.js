@@ -89,8 +89,11 @@ You can obtain a copy of the MPL at <https://www.mozilla.org/MPL/2.0/>.
         for (var index = 0; index < output.length; index++) {
             for (var range = 1; range <= 3; range++) {
                 var substring = output.slice(index, index + range);
-                output = output.replaceBy(REPLACE[substring] || substring,
-                                          index);
+                var replacement = REPLACE[substring];
+                if (replacement) {
+                    output = output.replaceBy(replacement, index);
+                    break;
+                }
             }
         }
 
