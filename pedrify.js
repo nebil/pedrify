@@ -13,6 +13,10 @@ You can obtain a copy of the MPL at <https://www.mozilla.org/MPL/2.0/>.
         outputBox.innerHTML = inputBox.pedrify();
     });
 
+    function getRandomInt(maximum) {
+        return Math.floor(Math.random() * maximum) + 1;
+    }
+
     String.prototype.replaceBy = function(string, index) {
         return this.slice(0, index) +
                string +
@@ -24,6 +28,16 @@ You can obtain a copy of the MPL at <https://www.mozilla.org/MPL/2.0/>.
                this.slice(index, index + 1) +
                this.slice(index - 1, index) +
                this.slice(index + 1);
+    };
+
+    String.prototype.randomTranspose = function(amount) {
+        var output = this;
+        for (var step = 0; step < amount; step++) {
+            var index = getRandomInt(this.length);
+            output = output.transpose(index);
+        }
+
+        return output;
     };
 
     String.prototype.capitalize = function() {
@@ -55,6 +69,7 @@ You can obtain a copy of the MPL at <https://www.mozilla.org/MPL/2.0/>.
             'xcu': 'scu',
         };
 
+        var TRANSPOSE = 30;
         var BLACKLIST = /[.,:;?!]/g;   // a regular expression
                                       // to remove punctuation.
         var output = this.toLowerCase().replace(BLACKLIST, '');
@@ -66,6 +81,6 @@ You can obtain a copy of the MPL at <https://www.mozilla.org/MPL/2.0/>.
             }
         }
 
-        return output.capitalize();
+        return output.randomTranspose(this.length / TRANSPOSE).capitalize();
     };
 }());
