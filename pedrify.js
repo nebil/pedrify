@@ -19,6 +19,13 @@ You can obtain a copy of the MPL at <https://www.mozilla.org/MPL/2.0/>.
                this.slice(index + string.length);
     };
 
+    String.prototype.transpose = function(index) {
+        return this.slice(0, index - 1) +
+               this.slice(index, index + 1) +
+               this.slice(index - 1, index) +
+               this.slice(index + 1);
+    };
+
     String.prototype.capitalize = function() {
         return this.slice(0, 1).toUpperCase() + this.slice(1);
     };
