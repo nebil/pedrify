@@ -23,11 +23,24 @@ You can obtain a copy of the MPL at <https://www.mozilla.org/MPL/2.0/>.
                this.slice(index + string.length);
     };
 
+    String.prototype.includesWhitespace = function() {
+        return this.indexOf(' ') >= 0;
+    };
+
     String.prototype.transpose = function(index) {
-        return this.slice(0, index - 1) +
-               this.slice(index, index + 1) +
-               this.slice(index - 1, index) +
-               this.slice(index + 1);
+        var left  = index - 1;
+        var right = index + 1;
+        var includesWhitespace = this.slice(left, right).includesWhitespace();
+        var isOutOfBounds = index < 1 || index > this.length;
+
+        if (includesWhitespace || isOutOfBounds) {
+            return this;
+        } else {
+            return this.slice(0, left) +
+                   this.slice(index, right) +
+                   this.slice(left , index) +
+                   this.slice(right);
+        }
     };
 
     String.prototype.randomTranspose = function(amount) {
