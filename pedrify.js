@@ -7,7 +7,8 @@ You can obtain a copy of the MPL at <https://www.mozilla.org/MPL/2.0/>.
 (function() {
     'use strict';
 
-    document.getElementById('button').addEventListener('click', function() {
+    new Clipboard('#copy');
+    document.getElementById('pedrify').addEventListener('click', function() {
         var inputBox = document.getElementById('message').value;
         var outputBox = document.getElementById('answer');
         outputBox.innerHTML = inputBox.pedrify();

@@ -19,8 +19,11 @@
     <p>Porque, de cierta forma, todos queremos escribir como Pedro.</p>
     <textarea id='message' rows='10' cols='25'
               placeholder="Escribe algo en español."></textarea><br>
-    <input id='button' type='button' value="Pedrify">
+    <input id='pedrify' type='button' value="Pedrify">
     <p id='answer'></p>
+    <input id='copy' type='button' data-clipboard-target='#answer' value="Copiar">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js'
+            charset='utf-8'></script>
     <script src='pedrify.js' charset='utf-8'></script>
   </body>
 </html>
