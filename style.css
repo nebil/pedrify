@@ -16,7 +16,16 @@ body {
 }
 
 textarea {
+  background-color: #FCFCFC;
+  border: 1px solid #6AC;
+
   margin: 0.5em 0em 1em 0em;
   padding: 0.5em;
   resize: none;
+  height: 15ex;
+  width: 25em;
+}
+
+textarea:focus {
+  box-shadow: 0px 0px 5px #6AC;
 }
