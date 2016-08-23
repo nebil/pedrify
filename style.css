@@ -34,10 +34,11 @@ textarea:focus {
 
 /* Output */
 
-#answer {
+output {
   background-color: #FCFCFC;
   border: 1px solid #333;
 
+  display: block;
   margin: 2.5em 0em 1em 0em;
   min-height: 10ex;
   padding: 0.5em;
