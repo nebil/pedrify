@@ -43,6 +43,10 @@ output {
   min-height: 10ex;
   padding: 0.5em;
   width: 25em;
+
+  /* tweak for mobile devices. */
+     -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
 }
 
 /* Buttons */
