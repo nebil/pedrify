@@ -28,6 +28,16 @@ You can obtain a copy of the MPL at <https://www.mozilla.org/MPL/2.0/>.
                this.slice(index);
     };
 
+    String.prototype.randomDigitize = function(amount) {
+        var output = this;
+        for (var step = 0; step < amount; step++) {
+            var index = getRandomInt(this.length);
+            output = output.digitize(index);
+        }
+
+        return output;
+    };
+
     String.prototype.replaceBy = function(string, index) {
         return this.slice(0, index) +
                string +
@@ -108,6 +118,8 @@ You can obtain a copy of the MPL at <https://www.mozilla.org/MPL/2.0/>.
             }
         }
 
-        return output.randomTranspose(this.length / TRANSPOSE).capitalize();
+        return output.randomTranspose(this.length / TRANSPOSE)
+                     .randomDigitize(this.length / TRANSPOSE)
+                     .capitalize();
     };
 }());
