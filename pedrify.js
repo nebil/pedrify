@@ -39,6 +39,10 @@ You can obtain a copy of the MPL at <https://www.mozilla.org/MPL/2.0/>.
     };
 
     String.prototype.replaceBy = function(string, index) {
+        var DETERMINISM = 0.7; // a coefficient to moderate
+                              // deterministic replacements.
+        if (Math.random() > DETERMINISM) return this;
+
         return this.slice(0, index) +
                string +
                this.slice(index + string.length);
