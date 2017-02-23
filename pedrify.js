@@ -108,7 +108,7 @@ You can obtain a copy of the MPL at <https://www.mozilla.org/MPL/2.0/>.
         };
 
         var TRANSPOSE = 30;
-        var BLACKLIST = /[.,:;?!]/g;   // a regular expression
+        var BLACKLIST = /[.,:;¿?¡!]/g; // a regular expression
                                       // to remove punctuation.
         var output = this.toLowerCase().replace(BLACKLIST, '');
         for (var index = 0; index < output.length; index++) {
