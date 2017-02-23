@@ -18,6 +18,16 @@ You can obtain a copy of the MPL at <https://www.mozilla.org/MPL/2.0/>.
         return Math.floor(Math.random() * maximum) + 1;
     }
 
+    function getRandomDigit() {
+        return getRandomInt(10) - 1;
+    }
+
+    String.prototype.digitize = function(index) {
+        return this.slice(0, index) +
+               getRandomDigit() +
+               this.slice(index);
+    };
+
     String.prototype.replaceBy = function(string, index) {
         return this.slice(0, index) +
                string +
