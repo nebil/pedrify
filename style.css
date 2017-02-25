@@ -15,6 +15,12 @@ body {
                'Liberation Sans', 'Roboto', 'Droid Sans', 'Arial', sans-serif;
 }
 
+object {
+  position: absolute;
+    top: 0px;
+  right: 0px;
+}
+
 /* Input */
 
 textarea {
