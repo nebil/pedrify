@@ -26,6 +26,9 @@ object {
 textarea {
   background-color: #FCFCFC;
   border: 1px solid #6AC;
+  font-family: 'Helvetica Neue',
+               'Helvetica',
+               'Liberation Sans', 'Roboto', 'Droid Sans', 'Arial', sans-serif;
 
   margin: 0.5em 0em 1em 0em;
   padding: 0.5em;
@@ -60,6 +63,9 @@ output {
 input {
   border: 1px solid #333;
   color: #333;
+  font-family: 'Helvetica Neue',
+               'Helvetica',
+               'Liberation Sans', 'Roboto', 'Droid Sans', 'Arial', sans-serif;
 
   cursor: pointer;
   padding: 0.3em;
