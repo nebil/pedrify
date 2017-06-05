@@ -58,14 +58,12 @@ You can obtain a copy of the MPL at <https://www.mozilla.org/MPL/2.0/>.
         var includesWhitespace = this.slice(left, right).includesWhitespace();
         var isOutOfBounds = index < 1 || index > this.length;
 
-        if (includesWhitespace || isOutOfBounds) {
-            return this;
-        } else {
-            return this.slice(0, left) +
-                   this.slice(index, right) +
-                   this.slice(left , index) +
-                   this.slice(right);
-        }
+        if (includesWhitespace || isOutOfBounds) return this;
+
+        return this.slice(0, left) +
+               this.slice(index, right) +
+               this.slice(left , index) +
+               this.slice(right);
     };
 
     String.prototype.randomTranspose = function(amount) {
