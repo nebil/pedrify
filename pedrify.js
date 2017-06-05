@@ -93,6 +93,7 @@ You can obtain a copy of the MPL at <https://www.mozilla.org/MPL/2.0/>.
             'í': 'i',
             'ó': 'o',
             'ú': 'u',
+            'ü': 'u',
             // two-letter replacement.
             'ce': 'se',
             'ci': 'si',
